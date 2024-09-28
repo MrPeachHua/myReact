@@ -5,6 +5,7 @@ import './Myself.css';
 import 'zarm/dist/zarm.css';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import Bar from '../bar/Bar';
 
 const TabIcon = Icon.createFromIconfont(
   '//lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_20337_14.627ee457cf7594fbbce6d5e14b8c29ef.js',
@@ -238,21 +239,7 @@ const My = () => {
 
 
 
-        <TabBar activeKey={activeKey} onChange={handleChange}  className='fixed-bottom-left-right'>
-        <TabBar.Item itemKey="home" title="首页" icon={<TabIcon type="home" />} />
-        <TabBar.Item
-          itemKey="found"
-          title="项目"
-          icon={<TabIcon type="menu" />}
-          // badge={{ shape: 'circle', text: '3' }}
-        />
-        <TabBar.Item
-          itemKey="me"
-          title="我的"
-          icon={<TabIcon type="user" />}
-          // badge={{ shape: 'dot' }}
-        />
-      </TabBar>
+       <Bar />
     </>
   );
 }

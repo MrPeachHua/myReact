@@ -8,6 +8,7 @@ import path from 'path';
 import Home from './pages/home/Home';
 import My from './pages/my/Myself';
 import Myself from './pages/my/Myself';
+import Luojia from './pages/luojia/Luojia';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: '/my',
     Component: Myself,
+  },
+  {
+    path: '/lj',
+    Component: Luojia,
   },
   {
     path: '/e',
