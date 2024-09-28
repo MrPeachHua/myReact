@@ -1,26 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import {TabBar, Icon,Grid, NavBar  } from 'zarm';
 import { ArrowLeft } from '@zarm-design/icons';
-import './App.css';
+import './Home.css';
 import 'zarm/dist/zarm.css';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import { Link } from 'react-router-dom';
 
 const TabIcon = Icon.createFromIconfont(
   '//lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_20337_14.627ee457cf7594fbbce6d5e14b8c29ef.js',
 );
 
-const App = () => {
+const Home = () => {
   const [data, setData] = React.useState('');
   const [liData, setLiData] = React.useState([]);
-  useEffect(() => {
-    fetch('https://finance.yiduoyunfan.asia/about')
-     .then(response => response.text())
-     .then(response => {
-       setData(response);
-      });
-
-  }, [data]);
 
   useEffect(() => {
     fetch('https://finance.yiduoyunfan.asia/allCode')
@@ -57,7 +50,7 @@ const App = () => {
             <Tr>
               <Th>股票名称</Th>
               <Th>股票代码</Th>
-              <Th><span style={{color:'red'}}>涨跌幅</span></Th>
+              <Th><span>涨跌幅</span></Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -66,7 +59,7 @@ const App = () => {
                 <Tr key={index}>
                   <Td>{item['股票名称']}</Td>
                   <Td>{item['股票代码']}</Td>
-                  <Td><span style={{color:'red'}}>{item['涨跌幅']}</span></Td>
+                  <Td><span style={{color: String(item['涨跌幅']).indexOf('-') >= 0 ? 'green' :'red'}}>{item['涨跌幅']}</span></Td>
                 </Tr>
               ))
             }
@@ -84,9 +77,10 @@ const App = () => {
           icon={<TabIcon type="menu" />}
           // badge={{ shape: 'circle', text: '3' }}
         />
+        {/* 跳转到my页面 */}
         <TabBar.Item
           itemKey="me"
-          title="我的"
+          title={<Link to="/my">我的</Link>}
           icon={<TabIcon type="user" />}
           // badge={{ shape: 'dot' }}
         />
@@ -96,7 +90,7 @@ const App = () => {
 }
 
 
-export default App;
+export default Home;
 
 // function useState(arg0: string): [any, any] {
 //   throw new Error('Function not implemented.');
