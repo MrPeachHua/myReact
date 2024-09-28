@@ -109,6 +109,7 @@ const My = () => {
   const quoteHistory = (stockCode:any,fType:any) => {
     const startDate = getMonth()['startDate'];
     const endDate = getMonth()['endDate'];
+    setToggleVisible(true);
     fetch('https://finance.yiduoyunfan.asia/quoteHistory?stockCode='+stockCode+'&startDate='+startDate+'&endDate='+endDate+'&fType='+fType)
      .then(response => response.json())
      .then(response => {
