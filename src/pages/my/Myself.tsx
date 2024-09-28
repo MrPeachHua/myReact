@@ -1,11 +1,10 @@
 import React, { useEffect, useState,useReducer  } from 'react';
-import {TabBar, Icon,Grid, NavBar, Mask  } from 'zarm';
+import {TabBar, Icon,Grid, NavBar, Mask,List, Button, Picker, Radio } from 'zarm';
 import { ArrowLeft } from '@zarm-design/icons';
 import './Myself.css';
 import 'zarm/dist/zarm.css';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
-import { List, Button, Picker, Toast } from 'zarm';
 
 const TabIcon = Icon.createFromIconfont(
   '//lf1-cdn-tos.bytegoofy.com/obj/iconpark/svg_20337_14.627ee457cf7594fbbce6d5e14b8c29ef.js',
@@ -94,27 +93,30 @@ const getMonth = () => {
 }
 
 const My = () => {
-
+  const [stockCode, setstockCode] = React.useState('');
+  const [ridioValue, setRidioValue] = useState('day');
   const [liData, setLiData] = React.useState([]);
   useEffect(() => {
-    fetch('https://finance.yiduoyunfan.asia/quoteHistory?stockCode=000002&startDate=20240901&endDate=20240930')
+    fetch('https://finance.yiduoyunfan.asia/quoteHistory?stockCode=000002&startDate=20240901&endDate=20240930'+'&fType='+ridioValue)
      .then(response => response.json())
      .then(response => {
        setLiData(response);
+       setstockCode('000002')
       });
 
   }, []);
 
-  const quoteHistory = (stockCode:any) => {
+  const quoteHistory = (stockCode:any,fType:any) => {
     const startDate = getMonth()['startDate'];
     const endDate = getMonth()['endDate'];
-    fetch('https://finance.yiduoyunfan.asia/quoteHistory?stockCode='+stockCode+'&startDate='+startDate+'&endDate='+endDate)
+    fetch('https://finance.yiduoyunfan.asia/quoteHistory?stockCode='+stockCode+'&startDate='+startDate+'&endDate='+endDate+'&fType='+fType)
      .then(response => response.json())
      .then(response => {
         setLiData(response);
       })
       .finally(() => {
         setToggleVisible(false);
+        setstockCode(stockCode)
       });
   }
 
@@ -136,6 +138,14 @@ const My = () => {
   const [color, setColor] = useState('black');
   const [opacity, setOpacity] = useState('normal')
   const toggle = () => setToggleVisible(!toggleVisible);
+
+  
+
+  const ridioOnChange = (value: any) => {
+    console.log('onChange', value);
+    setRidioValue(value);
+    quoteHistory(stockCode,value);
+  };
   return (
     <>
       <NavBar
@@ -163,10 +173,21 @@ const My = () => {
           setValue('single', changedValue);
           setVisible('single');
           toggle();
-          quoteHistory(changedValue);
+          quoteHistory(stockCode,changedValue);
         }}
         onCancel={() => setVisible('single')}
       />
+
+
+      <List>
+        <List.Item>
+          <Radio.Group value={ridioValue} onChange={ridioOnChange}>
+            <Radio value="day">天级别</Radio>
+            <Radio value="min">分钟级</Radio>
+          </Radio.Group>
+        </List.Item>
+      </List>
+
 
         <div className='spacer'></div>
         <Table className='table'>
