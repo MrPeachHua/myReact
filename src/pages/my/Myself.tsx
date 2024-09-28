@@ -107,6 +107,18 @@ const My = () => {
 
   }, []);
 
+  useEffect(() => {
+    fetch('https://finance.yiduoyunfan.asia/enumCode')
+     .then(response => response.json())
+     .then(response => {
+      // 如果response为空
+      if(response.length > 0){
+        initState.single.dataSource = response.map((item: any) => ({ value: item.code, label: item.name }));
+      }
+      });
+
+  }, []);
+
   const quoteHistory = (stockCode:any,fType:any) => {
     const startDate = getMonth()['startDate'];
     const endDate = getMonth()['endDate'];
