@@ -187,7 +187,7 @@ const My = () => {
           setValue('single', changedValue);
           setVisible('single');
           toggle();
-          quoteHistory(stockCode,changedValue);
+          quoteHistory(changedValue,ridioValue);
         }}
         onCancel={() => setVisible('single')}
       />
