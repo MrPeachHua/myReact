@@ -84,7 +84,7 @@ const getMonth = () => {
 }
 
 
-function timestampToYyyymmdd(timestamp) {
+function timestampToYyyymmdd(timestamp:any) {
     const date = new Date(timestamp); // 将时间戳转换为Date对象
     const year = date.getFullYear(); // 获取年份
     const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 获取月份并补零
