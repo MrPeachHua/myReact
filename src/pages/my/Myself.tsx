@@ -71,27 +71,27 @@ const reducer = (state: any, action: any) => {
 };
 
 const getMonth = () => {
-  //获取当前月份的第一个和最后一天
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = now.getMonth() + 1;
-  const firstDay = new Date(year, month - 1, 1);
-  const lastDay = new Date(year, month, 0);
-  //获取当前月份的第一天星期几
-  const firstDayWeek = firstDay.getDay();
-  //获取当前月份的最后一天星期几
-  const lastDayWeek = lastDay.getDay();
-  //获取当前月份的天数
-  const days = new Date(year, month, 0).getDate();
-  //转为 20240901 格式
-  const startDate = `${year}${month.toString().padStart(2, '0')}01`;
-  //转为 20240930 格式
-  const endDate = `${year}${month.toString().padStart(2, '0')}${days}`;
+  // 示例：假设有一个时间戳
+  const startTime = new Date(); // 或者任何其他的时间戳
+  const endTime = new Date();
+  startTime.setDate(endTime.getDate() - 30);
+  const startDate = timestampToYyyymmdd(startTime);
+  const endDate = timestampToYyyymmdd(endTime);
   return {
     startDate,
     endDate,
   }
 }
+
+
+function timestampToYyyymmdd(timestamp) {
+    const date = new Date(timestamp); // 将时间戳转换为Date对象
+    const year = date.getFullYear(); // 获取年份
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 获取月份并补零
+    const day = date.getDate().toString().padStart(2, '0'); // 获取日期并补零
+    return year.toString() + month + day; // 拼接为yyyyMMdd格式
+}
+ 
 
 const My = () => {
   const [stockCode, setstockCode] = React.useState('');
