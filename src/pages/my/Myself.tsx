@@ -97,8 +97,10 @@ const My = () => {
   const [stockCode, setstockCode] = React.useState('');
   const [ridioValue, setRidioValue] = useState('day');
   const [liData, setLiData] = React.useState([]);
+  const startDate = getMonth()['startDate'];
+  const endDate = getMonth()['endDate'];
   useEffect(() => {
-    fetch('https://finance.yiduoyunfan.asia/quoteHistory?stockCode=000002&startDate=20240901&endDate=20240930'+'&fType='+ridioValue)
+    fetch('https://finance.yiduoyunfan.asia/quoteHistory?stockCode=000002&startDate='+startDate+'&endDate='+endDate+'&fType='+ridioValue)
      .then(response => response.json())
      .then(response => {
        setLiData(response);
