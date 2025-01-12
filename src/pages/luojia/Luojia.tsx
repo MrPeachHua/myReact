@@ -38,13 +38,13 @@ const Luojia  = () => {
         </Grid.Item>
       
         <Grid.Item key="2">
-        <Button theme="primary" onClick={shangyao}>上爻</Button>
+        <Button theme="primary" onClick={shangyao}>上卦</Button>
         </Grid.Item>
         <Grid.Item key="3">
         <Image width={200} height={230} src={down}></Image>
         </Grid.Item>
         <Grid.Item key="4">
-        <Button theme="primary" onClick={xiayao}>下爻</Button>
+        <Button theme="primary" onClick={xiayao}>下卦</Button>
         </Grid.Item>
       </Grid>
        <Bar/>
