@@ -110,14 +110,13 @@ const Luojia  = () => {
     let randomNumber = Math.floor(Math.random() * 8);
     setUp(guaList[randomNumber]["img"]);
     setUpCode(guaList[randomNumber]["code"]);
-    console.log(downCode+"_"+upCode)
-    setDesc(getValueByKey(gua64,downCode+"_"+upCode))
+    setDesc(getValueByKey(gua64,downCode+"_"+guaList[randomNumber]["code"]))
   }
   const xiayao = ()=>{
     let randomNumber = Math.floor(Math.random() * 8);
     setDown(guaList[randomNumber]["img"]);
     setDownCode(guaList[randomNumber]["code"]);
-    setDesc(getValueByKey(gua64,downCode+"_"+upCode))
+    setDesc(getValueByKey(gua64,guaList[randomNumber]["code"]+"_"+upCode))
   }
   const [desc,setDesc] = useState<string>("");
   const [up,setUp] = useState<string>("https://abc.yiduoyunfan.asia/qian.png")
