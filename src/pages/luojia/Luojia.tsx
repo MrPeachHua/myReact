@@ -18,7 +18,7 @@ const Luojia  = () => {
     {"code":"gen","img":"https://abc.yiduoyunfan.asia/gen.png"},
     {"code":"zhen","img":"https://abc.yiduoyunfan.asia/zhen.png"},
     {"code":"li","img":"https://abc.yiduoyunfan.asia/li.png"},
-    {"code":"xun","img":"https://abc.yiduoyunfan.asia/xun.png"},
+    {"code":"xun","img":"https://abc.yiduoyunfan.asia/zhuan.png"},
     {"code":"kan","img":"https://abc.yiduoyunfan.asia/kan.png"}
   ]
 
