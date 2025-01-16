@@ -117,8 +117,10 @@ const Luojia  = () => {
     setDown(guaList[randomNumber]["img"]);
     setDownCode(guaList[randomNumber]["code"]);
     setDesc(getValueByKey(gua64,guaList[randomNumber]["code"]+"_"+upCode))
+    setYaoDesc(Math.floor(Math.random() * 6)+1+"")
   }
-  const [desc,setDesc] = useState<string>("");
+  const [desc,setDesc] = useState<string>("")
+  const [yaoDesc,setYaoDesc] = useState<string>("")
   const [up,setUp] = useState<string>("https://abc.yiduoyunfan.asia/qian.png")
   const [down,setDown] = useState<string>("https://abc.yiduoyunfan.asia/kun.png")
   const [upCode,setUpCode] = useState<string>("qian")
@@ -131,16 +133,19 @@ const Luojia  = () => {
         </Grid.Item>
       
         <Grid.Item key="2">
-        <Button theme="primary" onClick={shangyao}>上爻</Button>
+        <Button theme="primary" onClick={shangyao}>上卦</Button>
         </Grid.Item>
         <Grid.Item key="3">
         <Image width={200} height={230} src={down}></Image>
         </Grid.Item>
         <Grid.Item key="4">
-        <Button theme="primary" onClick={xiayao}>下爻</Button>
+        <Button theme="primary" onClick={xiayao}>下卦</Button>
         </Grid.Item>
         <Grid.Item key="5">
         <span>{desc}</span>
+        </Grid.Item>
+        <Grid.Item key="6">
+        <span>第{yaoDesc}爻</span>
         </Grid.Item>
       </Grid>
        <Bar/>
