@@ -100,7 +100,7 @@ const My = () => {
   const startDate = getMonth()['startDate'];
   const endDate = getMonth()['endDate'];
   useEffect(() => {
-    fetch('https://finance.yiduoyunfan.asia/quoteHistory?stockCode=000002&startDate='+startDate+'&endDate='+endDate+'&fType='+ridioValue)
+    fetch('https://finance.yiduoyunfan.top/quoteHistory?stockCode=000002&startDate='+startDate+'&endDate='+endDate+'&fType='+ridioValue)
      .then(response => response.json())
      .then(response => {
        setLiData(response);
@@ -110,7 +110,7 @@ const My = () => {
   }, []);
 
   useEffect(() => {
-    fetch('https://finance.yiduoyunfan.asia/enumCode')
+    fetch('https://finance.yiduoyunfan.top/enumCode')
      .then(response => response.json())
      .then(response => {
       // 如果response为空
