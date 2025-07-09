@@ -12,14 +12,14 @@ const TabIcon = Icon.createFromIconfont(
 const Luojia  = () => {
   let nb = 8;
   const guaList = [
-    {"code":"qian","img":"https://abc.yiduoyunfan.asia/qian.png"},
-    {"code":"kun","img":"https://abc.yiduoyunfan.asia/kun.png"},
-    {"code":"dui","img":"https://abc.yiduoyunfan.asia/dui.png"},
-    {"code":"gen","img":"https://abc.yiduoyunfan.asia/gen.png"},
-    {"code":"zhen","img":"https://abc.yiduoyunfan.asia/zhen.png"},
-    {"code":"li","img":"https://abc.yiduoyunfan.asia/li.png"},
-    {"code":"xun","img":"https://abc.yiduoyunfan.asia/zhuan.png"},
-    {"code":"kan","img":"https://abc.yiduoyunfan.asia/kan.png"}
+    {"code":"qian","img":"https://one.iseeauction.eu.org/images/qian.png"},
+    {"code":"kun","img":"https://one.iseeauction.eu.org/images/kun.png"},
+    {"code":"dui","img":"https://one.iseeauction.eu.org/images/dui.png"},
+    {"code":"gen","img":"https://one.iseeauction.eu.org/images/gen.png"},
+    {"code":"zhen","img":"https://one.iseeauction.eu.org/images/zhen.png"},
+    {"code":"li","img":"https://one.iseeauction.eu.org/images/li.png"},
+    {"code":"xun","img":"https://one.iseeauction.eu.org/images/zhuan.png"},
+    {"code":"kan","img":"https://one.iseeauction.eu.org/images/kan.png"}
   ]
 
   function getValueByKey(obj: any, inputKey: string): string {
