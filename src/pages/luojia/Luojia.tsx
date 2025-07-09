@@ -121,8 +121,8 @@ const Luojia  = () => {
   }
   const [desc,setDesc] = useState<string>("")
   const [yaoDesc,setYaoDesc] = useState<string>("")
-  const [up,setUp] = useState<string>("https://abc.yiduoyunfan.asia/qian.png")
-  const [down,setDown] = useState<string>("https://abc.yiduoyunfan.asia/kun.png")
+  const [up,setUp] = useState<string>("https://one.iseeauction.eu.org/images/qian.png")
+  const [down,setDown] = useState<string>("https://one.iseeauction.eu.org/images/kun.png")
   const [upCode,setUpCode] = useState<string>("qian")
   const [downCode,setDownCode] = useState<string>("kun")
   return (
