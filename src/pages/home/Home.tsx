@@ -17,7 +17,7 @@ const Home = () => {
   const [liData, setLiData] = React.useState([]);
 
   useEffect(() => {
-    fetch('https://finance.yiduoyunfan.asia/allCode')
+    fetch('https://finance.yiduoyunfan.top/allCode')
      .then(response => response.json())
      .then(response => {
        setLiData(response);
